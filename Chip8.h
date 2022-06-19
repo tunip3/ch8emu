@@ -24,23 +24,22 @@ private:
     unsigned short stack[16];
     //set to first free spot (0)
     unsigned short sp = 1;
+    void ClearScreen();
+    bool DrawPixel(int x, int y);
+    bool DrawLine(int x, int y, char data);
+    bool DrawSprite(int x, int y, int height);
 public:
     bool initialised = false;
     bool draw = false;
     //path to rom, not sure we really need this?
-    string path;
     uint32_t pixels[64*32* sizeof(uint32_t)];
     Chip8(const string &path);
-    void ClearScreen();
-    bool DrawPixel(int x, int y);
-    bool DrawLine(int x, int y, char data);
     void ExecuteCycle();
     bool running = false;
     unsigned char delaytimer = 0;
     unsigned char soundtimer = 0;
     unsigned char instructioncounter = 0;
     bool keys[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-    bool DrawSprite(int x, int y, int height);
 };
 
 

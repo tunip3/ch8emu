@@ -40,7 +40,7 @@ const unsigned char font[80] = {
         0xF0, 0x80, 0xF0, 0x80, 0x80  // F
 };
 
-Chip8::Chip8(const string &path) : path(path) {
+Chip8::Chip8(const string &path) {
     running = true;
     //set our pixels to black
     memset(pixels, 0, 64*32* sizeof(uint32_t));
