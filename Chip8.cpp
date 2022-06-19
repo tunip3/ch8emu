@@ -123,10 +123,6 @@ void Chip8::ExecuteCycle() {
     char addrnum;
     short instruction = memory[pc] << 8 | memory[pc+1];
     //print current instruction
-    printf("Instruction: %04hX ", instruction);
-    printf("v0: %d ", V[0]);
-    printf("v1: %d ", V[1]);
-    printf("vf: %d\n", V[0xF]);
     switch (instruction & 0xF000) {
         case (0x0000):
             switch(instruction & 0X00FF) {

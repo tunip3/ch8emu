@@ -193,11 +193,6 @@ int main(int argc, char *argv[]) {
         //create texture
         SDL_Texture *texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STATIC, 64, 32);
         int i = 0;
-        /*memset(chip8.pixels, 255, 64 * 32 * sizeof(Uint32));
-        SDL_UpdateTexture(texture, nullptr, chip8.pixels, 64 * sizeof(uint32_t));
-        SDL_RenderClear(renderer);
-        SDL_RenderCopy(renderer, texture, nullptr, nullptr);
-        SDL_RenderPresent(renderer);*/
 
         SDL_TimerID timerId = SDL_AddTimer(1000/60, reduce_timer, &chip8);
 
@@ -230,7 +225,6 @@ int main(int argc, char *argv[]) {
                 SDL_RenderPresent(renderer);
                 chip8.draw = false;
             }
-            //SDL_WaitEvent(&event);
             if (chip8.instructioncounter < 12) {
                 chip8.ExecuteCycle();
                 chip8.instructioncounter +=1;
