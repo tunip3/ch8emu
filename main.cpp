@@ -152,8 +152,14 @@ Uint32 reduce_timer(Uint32 interval, void *param)
 }
 
 int main(int argc, char *argv[]) {
-    //create chip8
+    //make sure a path to the rom is provided
+    if (argc < 2)
+    {
+        printf("You must provide a rom file to load");
+        return 0;
+    }
 
+    //create chip8
     SDL_Scancode scanCodes[16] = {SDL_SCANCODE_X,
                               SDL_SCANCODE_1,
                               SDL_SCANCODE_2,
